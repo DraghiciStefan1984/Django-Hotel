@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <section class="probootstrap-slider flexslider2 page-inner">
+    <div class="overlay"></div>
+    <div class="probootstrap-wrap-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+
+            <div class="page-title probootstrap-animate">
+              <div class="probootstrap-breadcrumbs">
+                <a href="#">Home</a><span><a href="{% url 'property:property_list' %}">Properties</a>{{property}}</span>
+              </div>
+              <h1>{{property}}</h1>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="slides">
+      <li style="background-image: url(img/slider_1.jpg);"></li>
+      <li style="background-image: url(img/slider_4.jpg);"></li>
+      <li style="background-image: url(img/slider_2.jpg);"></li>
+    </ul>
+  </section>
+  <!-- END: slider  -->
+
+  <section class="probootstrap-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p><img src="{{property.image.url}}" class="img-responsive" alt="Free Bootstrap Template by uicookies.com"></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Details</h2>
+          <p>Type: {{property.category}}</p>
+          <p>Area: {{property.area}} mp</p>
+          <p>Bedrooms: {{property.beds_number}}</p>
+          <p>Baths: {{property.baths_number}}</p>
+          <p>Garages: {{property.garages_number}}</p>
+          <h4>Price: {{property.price}}$ {% if property.property_type == 'R' %}/month{% endif %} </h4>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock content %}
