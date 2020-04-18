@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Property, Category
+from .forms import ReserveForm
 
 
 # Create your views here.
@@ -10,4 +11,11 @@ def property_list(request):
 
 def property_detail(request, id):
     property=Property.objects.get(pk=id)
-    return render(request, 'detail.html', {'property':property})
+    if request.method=='POST':
+        reserve_form=ReserveForm(request.POST)
+        if reserve_form.is_valid():
+            pass
+    else:
+        reserve_form=ReserveForm()
+    context={'property':property, 'reserve_form':reserve_form}
+    return render(request, 'detail.html', context)

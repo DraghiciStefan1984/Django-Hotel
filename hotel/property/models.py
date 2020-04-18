@@ -37,3 +37,11 @@ class Property(models.Model):
         verbose_name='Property'
         verbose_name_plural='Properties'
 
+
+class Reserve(models.Model):
+    name=models.CharField(max_length=100)
+    email=models.EmailField()
+    notes=models.TextField()
+
+    def __str__(self):
+        return self.name

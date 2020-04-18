@@ -47,5 +47,20 @@
         </div>
       </div>
     </div>
+
+    <div class="container">
+      <div class="row">
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Reserve this property</h2>
+          <form action="{% url 'property:property_list' %}" method='POST'>
+          {% csrf_token %}
+          {{reserve_form.as_p}}
+          <button type="submit">Reserve</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </section>
 {% endblock content %}
